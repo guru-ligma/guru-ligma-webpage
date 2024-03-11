@@ -1,0 +1,23 @@
+.text-light-green {
+    color: #0AD178;
+}
+
+.text-dark-green {
+    color: #067a46;
+}
+
+.button-color {
+    background-color: #00A85D !important;
+}
+
+.body-bg {
+    background-color: #000452;
+}
+
+.title-bar-bg {
+    background-color: #005C9E !important;
+}
+
+.text-primary-custom {
+    color: #1affc8;
+}
