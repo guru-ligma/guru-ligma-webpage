@@ -1,5 +1,5 @@
 .text-light-green {
-    color: #0AD178;
+    color: #00d178;
 }
 
 .text-dark-green {
@@ -7,7 +7,7 @@
 }
 
 .button-color {
-    background-color: #00A85D !important;
+    background-color: #00a85d !important;
 }
 
 .body-bg {
@@ -15,9 +15,17 @@
 }
 
 .title-bar-bg {
-    background-color: #005C9E !important;
+    background-color: #005C9e !important;
 }
 
 .text-primary-custom {
     color: #1affc8;
+}
+
+.text-heading-green {
+    color: #00c36f;
+}
+
+.border-color-custom {
+    border-color: #ffb700 !important;
 }
