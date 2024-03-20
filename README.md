@@ -1,2 +1,1 @@
-# guru-ligma-webpage
-The project containing the code for my main webpage
+# Code For The Website Of Social Media Profile Guru Ligma
