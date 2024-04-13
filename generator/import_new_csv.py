@@ -4,7 +4,7 @@ import secrets
 import os
 import shutil
 from typing import List, Dict, Tuple, Sequence, Generator, Set, Optional, Any, Callable, Union
-import atexit
+import zipfile
 
 root = os.path.dirname(os.path.abspath(__file__))
 
@@ -14,6 +14,7 @@ import_dir = os.path.join(root, "import")
 import_data_file = os.path.join(import_dir, "data.csv")
 import_data_dir = os.path.join(import_dir, "data")
 output_data_dir = os.path.join(root, "data")
+import_zips_dir = os.path.join(root, "import-zips")
 id_size = 16
 id_data = {"id_list": [], "id_size": id_size}
 
@@ -41,6 +42,16 @@ def read_csv_in(file: str) -> Generator[Dict[str, str], None, None]:
                     "prog_id": get_id()
                 }
                 yield data
+
+
+def extract_temp_files_from_zip(zfp: str) -> None:
+    z = zipfile.ZipFile(zfp)
+    for file in z.namelist():
+        if file.startswith("data/"):
+            z.extract(file, import_dir)
+        else:
+            z.extract(file, import_dir)
+    
 
 
 def move_img(file_in: str, file_out: str) -> None:
@@ -83,4 +94,10 @@ def update_data() -> None:
             writer.writerow(line)
 
 if __name__ == "__main__":
-    update_data()
+    for roots, dirs, files in os.walk(import_zips_dir):
+        for file in files:
+            try:
+                extract_temp_files_from_zip(os.path.join(roots, file))
+                update_data()
+            except Exception as e:
+                pass

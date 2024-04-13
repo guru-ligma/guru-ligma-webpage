@@ -89,9 +89,9 @@ def gen_home_html(page_len: int) -> None:
     html_file = "catalog-page"
     if page_len <= 0:
         raise ValueError
-    with open("cataloghome-base-0.html") as f:
+    with open(os.path.join(root, "cataloghome-base-0.html")) as f:
         output = f.read()
-    with open("cataloghome-base-1.html") as f:
+    with open(os.path.join(root, "cataloghome-base-1.html")) as f:
         end = f.read()
     output = f"""{output}
     <div class="contaier-lg my-5 justify-content-between text-center">
@@ -124,13 +124,13 @@ def gen_page_html(pages: PagesStructure) -> int:
     len_pages = len(pages)
     for index, z_img in enumerate(pages):
         output = ""
-        with open("./pages-base-0.html") as f:
+        with open(os.path.join(root, "pages-base-0.html")) as f:
             output = f.read()
-        with open("./pages-base-1.html") as f:
+        with open(os.path.join(root, "pages-base-1.html")) as f:
             output = f"{output}{index}{f.read()}"
-        with open("./pages-base-2.html") as f:
+        with open(os.path.join(root, "pages-base-2.html")) as f:
             output = f"{output}{index}{f.read()}"
-        with open("./pages-base-3.html") as f:
+        with open(os.path.join(root, "pages-base-3.html")) as f:
             end = f.read()
         with open(f"catalog-pages/{html_file}-{index}.html", "w") as f:
             output = f"""{output}
