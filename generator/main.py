@@ -94,26 +94,26 @@ def gen_home_html(page_len: int) -> None:
     with open(os.path.join(root, "cataloghome-base-1.html")) as f:
         end = f.read()
     output = f"""{output}
-    <div class="contaier-lg my-5 justify-content-between text-center">
-        <div class="row justify-content-between text-center">
-            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-between></div>"""
+    <div class="contaier-lg my-5 justify-content-center text-center">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-center></div>"""
     step = 0
     for i in range(page_len):
         output = f"""{output}
-            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-between text-center">
+            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-center text-center">
                 <a href="catalog-pages/{html_file}-{i}.html" class="btn btn-primary">Catalog Page {i}</a>
             </div>"""
         step += 1
         if step == 5:
             output = f"""{output}
-            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-between></div>
         </div>
-        <div class="row justify-content-between text-center">
-            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-between></div>"""
+        <div class="row justify-content-center text-center">
+            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-center></div>"""
             step = 0
     output = f"""{output}
-            <div class="col-md-12 col-lg-1 col-xl-1 justify-content-between></div></div>
-        {end}"""
+</div></div>
+        {end}
+"""
 
     with open("catalog-home.html", "w") as f:
         f.write(output)
@@ -134,25 +134,25 @@ def gen_page_html(pages: PagesStructure) -> int:
             end = f.read()
         with open(f"catalog-pages/{html_file}-{index}.html", "w") as f:
             output = f"""{output}
-            <div class="contaier-lg my-5 justify-content-between text-center">
-                <div class="row justify-content-between text-center">
-                    <div class=col-2 justify-content-between></div>"""
+            <div class="contaier-lg my-5 justify-content-center text-center">
+                <div class="row justify-content-center text-center">
+                    <div class=col-2 justify-content-center></div>"""
             if index != 0:
                 output = f"""{output}
-                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-between text-center">
+                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-center text-center">
                         <a href="../catalog-pages/{html_file}-{index-1}.html" class="btn btn-primary">Previous Page</a>
                     </div>"""
             output = f"""{output}
-                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-between text-center">
+                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-center text-center">
                         <a href="../catalog-home.html" class="btn btn-primary">Catalog Home</a>
                     </div>"""
             if index != len_pages:
                 output = f"""{output}
-                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-between text-center">
+                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-center text-center">
                         <a href="../catalog-pages/{html_file}-{index+1}.html" class="btn btn-primary">Next Page</a>
                     </div>"""
             output = f"""{output}
-                    <div class=col-2 justify-content-between></div>
+                    <div class=col-2 justify-content-center></div>
                 </div>
             </div>
         </div>"""
@@ -160,13 +160,12 @@ def gen_page_html(pages: PagesStructure) -> int:
         <div class="container-fluid my-1">"""
             for imgs in z_img:
                 output = f"""{output}
-            <div class="row justify-content-between text-center">
-                <div class=col-2 justify-content-between></div>"""
+            <div class="row justify-content-center text-center">"""
                 for _img in imgs:
                     img_id = _img["id"]
                     img_file = _img["filename"]
                     output = f"""{output}
-                <div class="m-5 col-md-12 col-lg-2 col-xl-2 justify-content-between text-center">
+                <div class="m-5 col-md-12 col-lg-2 col-xl-2 justify-content-center text-center">
                     <table class="align-middle">
                         <thead>
                             <tr>
@@ -180,30 +179,27 @@ def gen_page_html(pages: PagesStructure) -> int:
                         </tbody>
                     </table>
                     <p><hr class="border-2 border-top border-dark bg-dark"/></p>
-                </div>
-                <div class=col-2 justify-content-between></div>"""
+                </div>"""
                 output = f"""{output}
             </div>"""
             output = f"""{output}
-            <div class="contaier-lg my-5 justify-content-between text-center">
-                <div class="row justify-content-between text-center">
-                    <div class=col-2 justify-content-between></div>"""
+            <div class="contaier-lg my-5 justify-content-center text-center">
+                <div class="row justify-content-center text-center">"""
             if index != 0:
                 output = f"""{output}
-                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-between text-center">
+                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-center text-center">
                         <a href="../catalog-pages/{html_file}-{index-1}.html" class="btn btn-primary">Previous Page</a>
                     </div>"""
             output = f"""{output}
-                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-between text-center">
+                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-center text-center">
                         <a href="../catalog-home.html" class="btn btn-primary">Catalog Home</a>
                     </div>"""
             if index != len_pages:
                 output = f"""{output}
-                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-between text-center">
+                    <div class="col-md-12 col-lg-2 col-xl-1 justify-content-center text-center">
                         <a href="../catalog-pages/{html_file}-{index+1}.html" class="btn btn-primary">Next Page</a>
                     </div>"""
             output = f"""{output}
-                    <div class=col-2 justify-content-between></div>
                 </div>
             </div>
         </div>"""
