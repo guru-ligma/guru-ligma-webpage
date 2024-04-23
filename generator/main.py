@@ -161,7 +161,7 @@ def gen_page_html(pages: PagesStructure) -> int:
             for imgs in z_img:
                 output = f"""{output}
             <div class="row justify-content-center text-center">"""
-                for _img in imgs:
+                for i, _img in enumerate(imgs):
                     img_id = _img["id"]
                     img_file = _img["filename"]
                     output = f"""{output}
@@ -178,8 +178,10 @@ def gen_page_html(pages: PagesStructure) -> int:
                             </tr>
                         </tbody>
                     </table>
-                    <p><hr class="border-2 border-top border-dark bg-dark"/></p>
                 </div>"""
+                    if i == 0:
+                        output = f"""{output}
+                <div class="m-5 col-md-6 col-lg-1 col-xl-1 justify-content-center text-center"></div>"""
                 output = f"""{output}
             </div>"""
             output = f"""{output}
