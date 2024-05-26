@@ -3,9 +3,10 @@ import cliTextTools as ctt
 import math
 import clipboard
 from typing import Union
+import os
 
-
-file = "additions.json"
+root = os.path.dirname(os.path.abspath(__file__))
+file = os.path.join(root, "additions.json")
 with open(file) as f:
     data = json.load(f)
 
