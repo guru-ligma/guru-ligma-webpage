@@ -12,7 +12,7 @@ with open(file) as f:
 
 basic_additions = """Check out me out on my other social media's! https://linkin.bio/guru-ligma
 For More information, like how to support me, or how to use my art see my website:
-https://guru-ligma.github.io/guruligma.github.io"""
+https://guruligmaaiart-flask.onrender.com/"""
 
 
 def convert(text: str, additions: str) -> str:
