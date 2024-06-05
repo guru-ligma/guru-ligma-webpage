@@ -10,7 +10,7 @@ file = os.path.join(root, "additions.json")
 with open(file) as f:
     data = json.load(f)
 
-basic_additions = """Check out me out on my other social media's! https://linkin.bio/guru-ligma
+basic_additions = """Check out me out on my other social media's found on my website!
 For More information, like how to support me, or how to use my art see my website:
 https://guruligmaaiart-flask.onrender.com/"""
 
@@ -18,16 +18,17 @@ https://guruligmaaiart-flask.onrender.com/"""
 def convert(text: str, additions: str) -> str:
     text_len = len(text)
     sep = math.floor(math.floor(text_len / 2) * 15 / 10) + 1
-    text = f"{text}\n{'='*sep}\n{additions}"
+    text = f"{text}{additions}"
     return text
 
 
 def get_name() -> Union[str, None]:
-    msg = "Enter the name of the piece:"
-    result = ctt.get_user_input(msg, ctt.STR_TYPE, allow_newlines=False, can_cancel=True)
-    if result is not None:
-        result = result.title()
-    return result
+    # msg = "Enter the name of the piece:"
+    # result = ctt.get_user_input(msg, ctt.STR_TYPE, allow_newlines=False, can_cancel=True)
+    # if result is not None:
+    #     result = result.title()
+    # return result
+    return ""
 
 
 def new_post() -> None:
